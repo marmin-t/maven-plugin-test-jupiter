@@ -12,18 +12,14 @@ cache:
 maven:
   version: 3.5.2
 
-deploy:
-  provider: script
-  script: mvn deploy scm:tag --settings .travis/settings.xml -Drevision=$BUILD_REVISION -Drelease
-#  on:
-#    tags: true
-
 env:
   global:
     - secure: "H9QkLqCOSbS9GyPqBRQUeAdyOWdBwA6Lra1JgW/OgPlTlfXNHD1+BSNMMBAg1nSvbSpdJRW5JzAOZUXoJOBMIXvEfcsgPvwK497FYce139d21/3t2dQcWnSM0y1ZDN1M37r1arYSakTS+5Tgxvcg9cjWl2B9Y4G35dBSDNGfHW1BEpyeaf8qn5az+HALjDI+d5CoOPIiTtv9xGv0JS21Lgr6ncrko1pVSo4P0MXo3iFGmZjKUtQFeafVLW+pk+eRKa5a7o7O5/OzAz5gV+sp64gqDlfBaLR0b0epN0Z5+JkrfQiCFhiniS8bVVnhotZOPg7RLwMeyy24wM+WMm5YGEYWV5fn6kM8IseXZSW4ukFBTYBXwFzKRsQrOTQyEHrFOwtUizsC+YXMmdfv1BMx0OiSxPXKblvJ1pzV536QNqAsrkWGnf6+JDS1tyvpKTqD/vse9nfgsa5sdIcyC8VSXvbhaazdGKcWP0x2wTzJSf0MZ3v8VUMQK4J7XR0DOTZZ1TaI6KAX1UrV+EAa4Ul0Ui+UGe8dpWtMaH77vtowf0b/weX2f6PPSbEfynWcMmKax+aezZxp0FEvv5sLedMriJ4eMfBv0m0hjF+NgWwpCPchhiLCFGWIY5aJMFzltxLueNnXv2euY9gBqDFiN0j4NrMQYqmV3NOB5GEefiYlkcQ="
     - secure: "IjhoCaZXOd4gp35eYN+iOX4icTc3=sfuv5PPa1VTAF/ua7oMdqMQpa/Tsvh1qZg5yUwDs2TN0+I0IljjACVYFsWFYv/5jE42pbGLkxepot2K458azEuABkWqqr9sNLHHoE0qT30S8cUX9BywgXSZKlugqgPGsPkRmaDNCwIlGHEQqVvl6JijuQ9LWMyJ9amlsORWymnPqnLhXVfpPlrAnXZzhUIDa/RfZ1x37umHstwxW+2HbHn/BG6GrsyvZYqEGksL3t3OR0PPPNjjkObiYkQXAAmYlDv7IrMxz6nZg8AG17WRPlt58YAWFNsER+q/8zsBLzW01+YqPsZ3MQ9oCyG+U5aT2b7nUblint5hQsqRNORshK8lx5TIG3Ow2+3px3VAAfUyp0AbpO2CK5vN0mnoYZQOM/7VRCOERJR3SHQSdRRxvTRkpPct2RDVPzmmXQ7s0Ziq3u3/M3lgmdfVLF3mxjOt+wTS4HQeqy20ssCfumAjcdl22+Gc+rwR3w24zp97HVUiAgDhYja2qgoJqI5fIkXQWy9uMw/JKy+pi4msy5ibnzt/OQ0R7CpHv6NtF3ePIWDeyZGE9hpkhHxExQkxZ/D7NZ+k71OXOerWfgxbB1moZJxBbzsajUDfQu0dbLj8ool5fnEZnqOhzIe6ASgajFxQ3/VCvD9Wl0cUSsKg="
     - MAVEN_HOME: "/usr/local/maven-3.5.2"
     - BUILD_REVISION: "1.0.0-SNAPSHOT"
+    - TRAVIS_DIR: "`pwd`/.travis"
 
 after_success:
+  - "$TRAVIS_DIR/publish.sh"
   - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
