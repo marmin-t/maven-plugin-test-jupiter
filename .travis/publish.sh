@@ -6,7 +6,7 @@ if [ $TRAVIS_BRANCH = 'master' ] && [ $TRAVIS_PULL_REQUEST == 'false' ]; then
 
     mvn deploy --settings $TRAVIS_DIR/settings.xml \
      -Drevision=$BUILD_REVISION \
-     -Drelease -DskipTests=true \
-     -
+     -DperformRelease=true -DskipTests=true
+
     exit $?
 fi
