@@ -1,4 +1,4 @@
-package org.developerbhuwan.maven.test.junit.jupiter;
+package io.github.devbhuwan.maven.test.junit.jupiter;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ParameterContext;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.extension.ParameterResolver;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
-import static org.developerbhuwan.maven.test.junit.jupiter.MavenRuntimeTestContextManager.create;
+import static io.github.devbhuwan.maven.test.junit.jupiter.MavenRuntimeTestContextManager.create;
 
 /**
  * @author Bhuwan Prasad Upadhyay

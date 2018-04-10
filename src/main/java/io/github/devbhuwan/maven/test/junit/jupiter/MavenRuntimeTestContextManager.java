@@ -1,4 +1,4 @@
-package org.developerbhuwan.maven.test.junit.jupiter;
+package io.github.devbhuwan.maven.test.junit.jupiter;
 
 import io.takari.maven.testing.TestProperties;
 import io.takari.maven.testing.executor.MavenExecution;
@@ -19,7 +19,7 @@ import static java.util.List.of;
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.reflect.FieldUtils.getFieldsListWithAnnotation;
 import static org.apache.commons.lang3.reflect.FieldUtils.writeField;
-import static org.developerbhuwan.maven.test.junit.jupiter.MavenRuntimeTestContextManager.PathDiscovery.*;
+import static io.github.devbhuwan.maven.test.junit.jupiter.MavenRuntimeTestContextManager.PathDiscovery.*;
 
 /**
  * @author Bhuwan Prasad Upadhyay

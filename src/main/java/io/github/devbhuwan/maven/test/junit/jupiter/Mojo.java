@@ -1,4 +1,4 @@
-package org.developerbhuwan.maven.test.junit.jupiter;
+package io.github.devbhuwan.maven.test.junit.jupiter;
 
 import io.takari.maven.testing.executor.MavenExecution;
 import lombok.NonNull;

@@ -1,4 +1,4 @@
-package org.developerbhuwan.maven.test.junit.jupiter;
+package io.github.devbhuwan.maven.test.junit.jupiter;
 
 /**
  * @author Bhuwan Prasad Upadhyay

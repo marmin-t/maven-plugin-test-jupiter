@@ -1,10 +1,10 @@
-package org.developerbhuwan.maven.test.junit.jupiter;
+package io.github.devbhuwan.maven.test.junit.jupiter;
 
 /**
  * @author Bhuwan Prasad Upadhyay
  */
-@MojoJunitConfig
-class MojoJUnitConfigUnitTests {
+@EmbeddedMojoJunitConfig
+class EmbeddedMojoJUnitConfigUnitTests {
 
     @MojoTest(project = "src/projects/mojo-junit")
     void definedCorrectPropertyValuesWithMojoThenBuildSuccessful(Mojo mojo) throws Exception {
