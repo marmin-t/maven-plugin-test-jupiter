@@ -15,8 +15,8 @@ maven:
 deploy:
   provider: script
   script: mvn deploy scm:tag --settings .travis/settings.xml -Drevision=$BUILD_REVISION -Drelease
-  on:
-    tags: true
+#  on:
+#    tags: true
 
 env:
   global:
