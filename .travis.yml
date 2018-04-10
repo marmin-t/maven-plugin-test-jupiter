@@ -14,7 +14,7 @@ maven:
 
 deploy:
   provider: script
-  script: mvn deploy --settings .travis/settings.xml -Drevision=$BUILD_REVISION -Drelease
+  script: mvn deploy scm:tag --settings .travis/settings.xml -Drevision=$BUILD_REVISION -Drelease
   on:
     tags: true
 
