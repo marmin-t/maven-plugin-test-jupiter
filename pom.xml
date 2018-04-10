@@ -176,6 +176,11 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                                <configuration>
+                                    <passphrase>${env.GPG_PASSWORD}</passphrase>
+                                    <keyname>${env.GPG_KEYNAME}</keyname>
+                                    <secretKeyring>${project.basedir}/secring.gpg</secretKeyring>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
