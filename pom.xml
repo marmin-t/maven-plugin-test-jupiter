@@ -179,7 +179,7 @@
                                 <configuration>
                                     <passphrase>${env.GPG_PASSWORD}</passphrase>
                                     <keyname>${env.GPG_KEYNAME}</keyname>
-                                    <secretKeyring>${project.basedir}/secring.gpg</secretKeyring>
+                                    <secretKeyring>${project.basedir}/.gpg/secring.gpg</secretKeyring>
                                 </configuration>
                             </execution>
                         </executions>
