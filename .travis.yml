@@ -14,7 +14,7 @@ maven:
 
 deploy:
   provider: script
-  script: mvn deploy --settings .travis/settings.xml
+  script: mvn deploy --settings .travis/settings.xml -Drevision=1.0.0-SNAPSHOT -Drelease
   on:
     tags: true
 
