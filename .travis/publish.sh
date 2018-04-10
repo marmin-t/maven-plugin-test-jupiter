@@ -14,4 +14,5 @@ if [ $TRAVIS_BRANCH = 'master' ] && [ $TRAVIS_PULL_REQUEST == 'false' ]; then
      -Dgpg.publicKeyring=$TRAVIS_DIR/pubring.gpg
      -Dgpg.secretKeyring=$TRAVIS_DIR/secring.gpg
     exit $?
+
 fi
