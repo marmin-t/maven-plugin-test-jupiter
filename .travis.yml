@@ -25,7 +25,7 @@ env:
     - secure: "nuO1dB4JgZIOC3jS5TMhfdK6wSonFYiGjYdm6atIv+VDeCztP1/9psjVikYuZA3OBcUT9bElqPD7V0R7U686ls1fw7qprVbaSNFxRwDXRp5b9It0RIWWY1oI+2Ux+wb8SiF8DEDmiE9JQiThB3Aa1Vj62lGu3j+g4CX55Roc+hiWZJ5CvU7FxqyQbtoB/RQwc8h0/yl/JIJPuC2+g8Vcdz7oQVIamZQ8rdqUhJmeSk0HcaKz3K2j+DWMIDE2HjbTLG7RINeRMcqVW+sQ1a0DBvLECZCqfKKzFKgRUhxAl0wC7PmGSzSqea0im3BtkHvPvCLtMfUI/bzO8XyfsIbTCgwM1lB1rIgiPoqwh2RlntVRwUHMsRZn0ShsJ3MvwjLkFZ5tAtipOox/pAVmsCbPH/0uGImyL9iDG/YvH4jhwnHAjZzX5avEO8xqNtHZyEtzTEedIE2MDiPbeB5WdLRKQahtbz0Yjj8lBfRhkHfHGljX0nOviVVwFAfSqsLI17AQ+2PeGkxWX6nCGZPOKcWphEEE/znPRAVmHk8to9VIgy0t8T7BrVklmReiMKxVTetqhOyh1k6e/ThYQUFMow/NEZ6GkDrjNph/t9dTooDKc4n2aNpFJIO4vP2LuhoAYAWlCwZWojgVRb9zqd/qR/0j3pwWGAjnaEo5o1zMqVfEjdg="
     - MAVEN_HOME: "/usr/local/maven-3.5.2"
     - BUILD_REVISION: "1.0.0-SNAPSHOT"
-    - TRAVIS_DIR: "`pwd`/.travis"
+    - TRAVIS_DIR: "$PWD/.travis"
 
 after_success:
   - "$TRAVIS_DIR/publish.sh"
