@@ -28,7 +28,5 @@ env:
     - TRAVIS_DIR: "$PWD/.travis"
 
 after_success:
-  - openssl aes-256-cbc -pass pass:$ENCRYPTION_PASSWORD -in $TRAVIS_DIR/pubring.gpg.enc -out $TRAVIS_DIR/pubring.gpg -d
-  - openssl aes-256-cbc -pass pass:$ENCRYPTION_PASSWORD -in $TRAVIS_DIR/secring.gpg.enc -out $TRAVIS_DIR/secring.gpg -d
   - "$TRAVIS_DIR/publish.sh"
   - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"

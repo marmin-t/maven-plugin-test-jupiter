@@ -8,8 +8,8 @@ if [ $TRAVIS_BRANCH = 'master' ] && [ $TRAVIS_PULL_REQUEST == 'false' ]; then
      -Dgpg.keyname=$GPG_KEYNAME \
      -Dgpg.passphrase=$GPG_PASSPHRASE \
      -Dgpg.defaultKeyring=false \
-     -Dgpg.publicKeyring=$TRAVIS_DIR/pubring.gpg
-     -Dgpg.secretKeyring=$TRAVIS_DIR/secring.gpg
+     -Dgpg.publicKeyring=$TRAVIS_DIR/pubring.kbx
+     -Dgpg.secretKeyring=$TRAVIS_DIR/trustdb.gpg
     exit $?
 
 fi
