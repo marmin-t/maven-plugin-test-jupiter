@@ -1,0 +1,29 @@
+boundedContext {
+    name = "accountancy"
+
+    aggregates {
+
+    }
+
+    entities {
+
+    }
+
+    valueObjects {
+
+    }
+
+    models {
+                    
+        PaymentEntry {
+            paidBy string
+            paidAt localDate
+        }
+
+    }
+
+    endpoints {
+        get list<PaymentEntry>
+    }
+
+}
