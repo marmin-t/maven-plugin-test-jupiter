@@ -20,8 +20,7 @@ RELEASE_TAG="v$RELEASE_VERSION"
         && git tag -a ${RELEASE_TAG} -m "Release of version: $RELEASE_VERSION"\
         && git push origin ${RELEASE_TAG}:refs/tags/${RELEASE_TAG}\
         && mvn -o -q versions:set -DgenerateBackupPoms=false -DnewVersion=${NEXT_ITERATION_VERSION}\
-        && git commit -am "Iteration of version -> $NEXT_ITERATION_VERSION"\
-        && echo "Reapplying potentially stashed changes... " && git stash pop\
-        && git push
+        && git commit -am "Iteration of version -> $NEXT_ITERATION_VERSION" && git push\
+        && echo "Reapplying potentially stashed changes... "  && git stash pop\
         )\
 || echo "Something went wrong!"
