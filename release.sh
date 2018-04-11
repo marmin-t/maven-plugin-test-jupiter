@@ -13,6 +13,7 @@ mvn clean install
 (echo "Preparing release of version: $RELEASE_VERSION" && git stash\
         && mvn -o -q versions:set -DgenerateBackupPoms=false -DnewVersion=${RELEASE_VERSION}\
         && mvn deploy -DperformRelease=true -DskipTests\
+        && git commit -am "Release of version -> $RELEASE_VERSION"\
         && git push\
         && git tag -a ${RELEASE_TAG} -m "Release of version: $RELEASE_VERSION"\
         && git push --tags\
