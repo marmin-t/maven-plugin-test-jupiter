@@ -1,6 +1,7 @@
 # maven-plugin-test-jupiter
 
 ![Travis branch](https://img.shields.io/travis/devbhuwan/maven-plugin-test-jupiter.svg?style=for-the-badge) 
+![Codecov](https://img.shields.io/codecov/c/github/devbhuwan/maven-plugin-test-jupiter.svg?style=for-the-badge)
 ![Github Releases](https://img.shields.io/github/downloads/devbhuwan/maven-plugin-test-jupiter/latest/total.svg?style=for-the-badge)
 
 ### How to use
