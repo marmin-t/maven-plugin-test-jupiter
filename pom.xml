@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.devbhuwan</groupId>
-    <version>1.0.2.RELEASE</version>
+    <version>1.0.2.BUILD-SNAPSHOT</version>
     <artifactId>maven-plugin-test-jupiter</artifactId>
     <name>Testing Framework for Maven Plugin Mojo for Junit 5</name>
 

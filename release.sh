@@ -12,12 +12,13 @@ mvn clean install
 
 (echo "Preparing release of version: $RELEASE_VERSION" && git stash\
         && mvn -o -q versions:set -DgenerateBackupPoms=false -DnewVersion=${RELEASE_VERSION}\
-        && mvn deploy -DperformRelease=true -DskipTests\
+        \
+        && git remote set-url origin git@github.com:devbhuwan/maven-plugin-test-jupiter.git\
         && git commit -am "Release of version -> $RELEASE_VERSION"\
         && git push\
         && git tag -a ${RELEASE_TAG} -m "Release of version: $RELEASE_VERSION"\
         && git push --tags\
-        && $(mvn -o -q versions:set -DgenerateBackupPoms=false -DnewVersion=${NEXT_ITERATION_VERSION})\
+        && mvn -o -q versions:set -DgenerateBackupPoms=false -DnewVersion=${NEXT_ITERATION_VERSION}\
         && git commit -am "Iteration of version -> $NEXT_ITERATION_VERSION"\
         && echo "Reapplying potentially stashed changes... " && git stash pop\
         && git push
