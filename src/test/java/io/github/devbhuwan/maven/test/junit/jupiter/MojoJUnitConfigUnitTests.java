@@ -7,13 +7,13 @@ package io.github.devbhuwan.maven.test.junit.jupiter;
 class MojoJUnitConfigUnitTests {
 
     @MojoTest(project = "src/projects/mojo-junit")
-    void definedCorrectPropertyValuesWithMojoThenBuildSuccessful(Mojo mojo) throws Exception {
+    void definedCorrectPropertyValuesWithMojoThenBuildSuccessful(PluginMojo mojo) throws Exception {
         mojo.begin()
                 .execute("package").assertErrorFreeLog();
     }
 
     @MojoTest(project = "src/projects/mojo-junit-2")
-    void buildSuccessUsingClassLevelMojo(Mojo mojo) throws Exception {
+    void buildSuccessUsingClassLevelMojo(PluginMojo mojo) throws Exception {
         mojo.begin().execute("verify").assertErrorFreeLog();
     }
 

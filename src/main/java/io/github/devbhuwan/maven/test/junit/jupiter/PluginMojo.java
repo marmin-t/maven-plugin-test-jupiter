@@ -6,11 +6,11 @@ import lombok.NonNull;
 /**
  * @author Bhuwan Prasad Upadhyay
  */
-public class Mojo {
+public class PluginMojo {
 
     private final MavenExecution exec;
 
-    Mojo(@NonNull MavenExecution exec) {
+    PluginMojo(@NonNull MavenExecution exec) {
         this.exec = exec;
     }
 

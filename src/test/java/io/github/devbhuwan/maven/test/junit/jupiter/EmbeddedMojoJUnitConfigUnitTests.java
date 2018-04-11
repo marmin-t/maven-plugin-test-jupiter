@@ -6,14 +6,14 @@ package io.github.devbhuwan.maven.test.junit.jupiter;
 @EmbeddedMojoJunitConfig
 class EmbeddedMojoJUnitConfigUnitTests {
 
-    @MojoTest(project = "src/projects/mojo-junit")
-    void definedCorrectPropertyValuesWithMojoThenBuildSuccessful(Mojo mojo) throws Exception {
+    @MojoTest
+    void definedCorrectPropertyValuesWithMojoThenBuildSuccessful(PluginMojo mojo) throws Exception {
         mojo.begin()
                 .execute("package").assertErrorFreeLog();
     }
 
-    @MojoTest(project = "src/projects/mojo-junit-2")
-    void buildSuccessUsingClassLevelMojo(Mojo mojo) throws Exception {
+    @MojoTest
+    void buildSuccessUsingClassLevelMojo(PluginMojo mojo) throws Exception {
         mojo.begin().execute("verify").assertErrorFreeLog();
     }
 
