@@ -1,7 +1,7 @@
 # maven-plugin-test-jupiter
 
-[![Build Status](https://travis-ci.org/devbhuwan/maven-plugin-test-jupiter.svg?branch=master)](https://travis-ci.org/devbhuwan/maven-plugin-test-jupiter)
-
+![Travis branch](https://img.shields.io/travis/devbhuwan/maven-plugin-test-jupiter.svg?style=for-the-badge) 
+![Github Releases](https://img.shields.io/github/downloads/devbhuwan/maven-plugin-test-jupiter/latest/total.svg?style=for-the-badge)
 
 ### How to use
 

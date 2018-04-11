@@ -78,18 +78,6 @@ class MavenRuntimeTestContextManager {
         System.out.println();
     }
 
-    void initializeMojoContexts(Object testInstance) {
-        ofNullable(getFieldsListWithAnnotation(testInstance.getClass(), MojoContext.class))
-                .orElse(of())
-                .forEach(field -> {
-                    try {
-                        writeField(field, testInstance, getMojo(), true);
-                    } catch (IllegalAccessException e) {
-                        throw new IllegalCallerException(e);
-                    }
-                });
-    }
-
     static class PathDiscovery {
 
         static final String MAVEN_HOME = "MAVEN_HOME";
