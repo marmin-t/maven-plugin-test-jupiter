@@ -8,10 +8,11 @@ RELEASE_VERSION=${1:?"RELEASE_VERSION Parameter is missing!"}.RELEASE
 NEXT_ITERATION_VERSION=${2:?"NEXT_RELEASE_VERSION Parameter is missing!"}.BUILD-SNAPSHOT
 RELEASE_TAG="v$RELEASE_VERSION"
 
-#mvn clean install
+mvn clean install
 
 (echo "Preparing release of version: $RELEASE_VERSION" && git stash\
         && mvn -o -q versions:set -DgenerateBackupPoms=false -DnewVersion=${RELEASE_VERSION}\
+        && mvn deploy -DperformRelease=true -DskipTests\
         && git remote set-url origin git@github.com:devbhuwan/maven-plugin-test-jupiter.git\
         && (git commit -am "Release of version -> $RELEASE_VERSION" || git push)\
         && git push\
