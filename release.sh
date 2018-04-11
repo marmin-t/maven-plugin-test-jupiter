@@ -5,7 +5,7 @@ if [ $# -lt 2 ]; then echo -e "ERROR: release_version and next_iteration_version
 if [ $# -gt 2 ]; then echo -e "ERROR: Two argument maximum.\n$USAGE" >&2; exit 1; fi
 
 RELEASE_VERSION=${1:?"RELEASE_VERSION Parameter is missing!"}.RELEASE
-NEXT_ITERATION_VERSION=${1:?"NEXT_RELEASE_VERSION Parameter is missing!"}.BUILD-SNAPSHOT
+NEXT_ITERATION_VERSION=${2:?"NEXT_RELEASE_VERSION Parameter is missing!"}.BUILD-SNAPSHOT
 RELEASE_TAG="v$RELEASE_VERSION"
 
 mvn clean install
