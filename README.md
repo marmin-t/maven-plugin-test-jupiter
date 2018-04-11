@@ -23,13 +23,13 @@ Example
 class EmbeddedMojoJUnitConfigUnitTests {
 
     @MojoTest
-    void definedCorrectPropertyValuesWithMojoThenBuildSuccessful(Mojo mojo) throws Exception {
+    void definedCorrectPropertyValuesWithMojoThenBuildSuccessful(PluginMojo mojo) throws Exception {
         mojo.begin()
                 .execute("your-plugin-goal").assertErrorFreeLog();
     }
 
     @MojoTest
-    void buildSuccessUsingClassLevelMojo(Mojo mojo) throws Exception {
+    void buildSuccessUsingClassLevelMojo(PluginMojo mojo) throws Exception {
         mojo.begin().execute("your-plugin-goal").assertErrorFreeLog();
     }
 
@@ -42,13 +42,13 @@ class EmbeddedMojoJUnitConfigUnitTests {
 class MojoJUnitConfigUnitTests {
 
     @MojoTest(project = "src/projects/mojo-junit")
-    void definedCorrectPropertyValuesWithMojoThenBuildSuccessful(Mojo mojo) throws Exception {
+    void definedCorrectPropertyValuesWithMojoThenBuildSuccessful(PluginMojo mojo) throws Exception {
         mojo.begin()
                 .execute("your-plugin-goal").assertErrorFreeLog();
     }
 
     @MojoTest(project = "src/projects/mojo-junit-2")
-    void buildSuccessUsingClassLevelMojo(Mojo mojo) throws Exception {
+    void buildSuccessUsingClassLevelMojo(PluginMojo mojo) throws Exception {
         mojo.begin().execute("verify").assertErrorFreeLog();
     }
  
