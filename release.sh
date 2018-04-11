@@ -12,8 +12,7 @@ RELEASE_TAG="v$RELEASE_VERSION"
 
 (echo "Preparing release of version: $RELEASE_VERSION" && git stash\
         && mvn -o -q versions:set -DgenerateBackupPoms=false -DnewVersion=${RELEASE_VERSION}\
- #       && mvn deploy -DperformRelease=true -DskipTests\
-       \ && git remote set-url origin git@github.com:devbhuwan/maven-plugin-test-jupiter.git\
+        && git remote set-url origin git@github.com:devbhuwan/maven-plugin-test-jupiter.git\
         && (git commit -am "Release of version -> $RELEASE_VERSION" || git push)\
         && git push\
         && git tag -l | xargs git tag -d && git fetch -t\
