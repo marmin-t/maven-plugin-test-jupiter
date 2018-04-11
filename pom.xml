@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.devbhuwan</groupId>
-    <version>${revision}</version>
+    <version>1.0.0.RELEASE</version>
     <artifactId>maven-plugin-test-jupiter</artifactId>
     <name>Testing Framework for Maven Plugin Mojo for Junit 5</name>
 
@@ -15,8 +15,6 @@
         <git.repository.name>${project.artifactId}</git.repository.name>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
-        <!-- default when no revision property is passed in from the commandline -->
-        <revision>0-SNAPSHOT</revision>
     </properties>
 
     <dependencies>
@@ -65,15 +63,6 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-scm-plugin</artifactId>
-                <version>1.9.5</version>
-                <configuration>
-                    <connectionType>connection</connectionType>
-                    <tag>${project.artifactId}-${project.version}</tag>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.7.0</version>
                 <configuration>
@@ -113,6 +102,18 @@
                         <version>${junit.jupiter.version}</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <newTag>v${project.version}</newTag>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
             </plugin>
         </plugins>
     </build>
@@ -203,7 +204,7 @@
         <connection>scm:git:git://github.com/devbhuwan/${git.repository.name}.git</connection>
         <developerConnection>scm:git:git@github.com:devbhuwan/${git.repository.name}.git</developerConnection>
         <url>https://github.com/devbhuwan/${git.repository.name}/</url>
-        <tag>HEAD</tag>
+        <tag>v1.0.0.RELEASE</tag>
     </scm>
 
     <developers>
@@ -213,6 +214,20 @@
             <url>http://devbhuwan.github.io</url>
         </developer>
     </developers>
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <description>
+        Junit 5 test for maven plugin project using.
+    </description>
+
+    <url>https://github.com/devbhuwan/${git.repository.name}</url>
 
     <organization>
         <name>Bhuwan Prasad Upadhyay</name>
