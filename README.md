@@ -12,15 +12,15 @@ Example
 @EmbeddedMojoJunitConfig
 class EmbeddedMojoJUnitConfigUnitTests {
 
-    @MojoTest(project = "src/projects/mojo-junit")
+    @MojoTest
     void definedCorrectPropertyValuesWithMojoThenBuildSuccessful(Mojo mojo) throws Exception {
         mojo.begin()
-                .execute("package").assertErrorFreeLog();
+                .execute("your-plugin-goal").assertErrorFreeLog();
     }
 
-    @MojoTest(project = "src/projects/mojo-junit-2")
+    @MojoTest
     void buildSuccessUsingClassLevelMojo(Mojo mojo) throws Exception {
-        mojo.begin().execute("verify").assertErrorFreeLog();
+        mojo.begin().execute("your-plugin-goal").assertErrorFreeLog();
     }
 
 }
@@ -34,13 +34,13 @@ class MojoJUnitConfigUnitTests {
     @MojoTest(project = "src/projects/mojo-junit")
     void definedCorrectPropertyValuesWithMojoThenBuildSuccessful(Mojo mojo) throws Exception {
         mojo.begin()
-                .execute("package").assertErrorFreeLog();
+                .execute("your-plugin-goal").assertErrorFreeLog();
     }
 
     @MojoTest(project = "src/projects/mojo-junit-2")
     void buildSuccessUsingClassLevelMojo(Mojo mojo) throws Exception {
         mojo.begin().execute("verify").assertErrorFreeLog();
     }
-
+ 
 }
 ```
