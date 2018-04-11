@@ -16,6 +16,7 @@ mvn clean install
         && git remote set-url origin git@github.com:devbhuwan/maven-plugin-test-jupiter.git\
         && (git commit -am "Release of version -> $RELEASE_VERSION" || git push)\
         && git push\
+        && git tag -l | xargs git tag -d && git fetch -t\
         && git tag -a ${RELEASE_TAG} -m "Release of version: $RELEASE_VERSION"\
         && git push --tags\
         && mvn -o -q versions:set -DgenerateBackupPoms=false -DnewVersion=${NEXT_ITERATION_VERSION}\
