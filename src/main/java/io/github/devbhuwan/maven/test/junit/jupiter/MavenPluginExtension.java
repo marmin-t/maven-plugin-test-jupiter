@@ -23,7 +23,7 @@ abstract class MavenPluginExtension implements ParameterResolver {
 
     @Override
     public boolean supportsParameter(ParameterContext ctx, ExtensionContext context) throws ParameterResolutionException {
-        return ctx.getParameter().getType() == Mojo.class;
+        return ctx.getParameter().getType() == PluginMojo.class;
     }
 
     @Override

@@ -5,6 +5,7 @@ import io.takari.maven.testing.executor.MavenExecution;
 import io.takari.maven.testing.executor.MavenRuntime;
 import lombok.Getter;
 import lombok.NonNull;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.lang.annotation.Annotation;
@@ -17,7 +18,7 @@ import static io.takari.maven.testing.TestProperties.PROP_LOCAL_REPOSITORY;
 import static java.lang.System.getenv;
 import static java.util.List.of;
 import static java.util.Optional.ofNullable;
-import static org.apache.commons.lang3.reflect.FieldUtils.getFieldsListWithAnnotation;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.apache.commons.lang3.reflect.FieldUtils.writeField;
 import static io.github.devbhuwan.maven.test.junit.jupiter.MavenRuntimeTestContextManager.PathDiscovery.*;
 
@@ -40,7 +41,7 @@ class MavenRuntimeTestContextManager {
         });
     }
 
-    private final Mojo mojo;
+    private final PluginMojo mojo;
 
     private MavenRuntimeTestContextManager(@NonNull String project, @NonNull Class<? extends Annotation> junitConfigClass) throws IllegalAccessException {
         final File mavenHome = new File(discoverMavenHome());
@@ -50,8 +51,8 @@ class MavenRuntimeTestContextManager {
         logs(mavenHome, localRepository);
         MavenRuntime runtime = FACTORIES.get(junitConfigClass).apply(mavenHome);
         injectProperties(localRepository, runtime);
-        MavenExecution mavenExecution = runtime.forProject(new File(project));
-        this.mojo = new Mojo(mavenExecution);
+        MavenExecution mavenExecution = runtime.forProject(new File(isNotBlank(project) ? project : localRepository));
+        this.mojo = new PluginMojo(mavenExecution);
     }
 
     static MavenRuntimeTestContextManager create(@NonNull String project, @NonNull Class<? extends Annotation> junitConfigClass) {
