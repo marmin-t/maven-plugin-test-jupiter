@@ -17,7 +17,7 @@ RELEASE_TAG="v$RELEASE_VERSION"
         && git push\
         && git tag -l | xargs git tag -d && git fetch -t\
         && git tag -a ${RELEASE_TAG} -m "Release of version: $RELEASE_VERSION"\
-        && git push origin ${RELEASE_TAG}:refs/tags/stable\
+        && git push origin stable:refs/tags/${RELEASE_TAG}\
         && mvn -o -q versions:set -DgenerateBackupPoms=false -DnewVersion=${NEXT_ITERATION_VERSION}\
         && git commit -am "Iteration of version -> $NEXT_ITERATION_VERSION"\
         && echo "Reapplying potentially stashed changes... " && git stash pop\
