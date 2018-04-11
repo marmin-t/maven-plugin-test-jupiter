@@ -3,7 +3,17 @@
 [![Build Status](https://travis-ci.org/devbhuwan/maven-plugin-test-jupiter.svg?branch=master)](https://travis-ci.org/devbhuwan/maven-plugin-test-jupiter)
 
 
-# How to use
+### How to use
+
+- Maven Dependency
+```xml
+<!-- https://mvnrepository.com/artifact/io.github.devbhuwan/maven-plugin-test-jupiter -->
+<dependency>
+    <groupId>io.github.devbhuwan</groupId>
+    <artifactId>maven-plugin-test-jupiter</artifactId>
+    <version>1.0.2.RELEASE</version>
+</dependency>
+```
 
 - Using `@EmbeddedMojoJunitConfig`
 
