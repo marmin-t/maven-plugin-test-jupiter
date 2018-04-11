@@ -17,7 +17,7 @@ echo "Creating feature branch $ISSUE_ID"
 
 echo "Stashing potential intermediate changes..." && git stash\
 && git checkout -b ${ISSUE_BRANCH}\
-&& (git commit -am "$ISSUE_ID - Prepare branch"\
+&& git commit -am "$ISSUE_ID - Prepare branch"\
 && echo "Created feature branch: $ISSUE_BRANCH"\
 && echo "Reapplying potentially stashed changes... " && git stash pop\
- || echo "Something went wrong!")
+&& echo "DONE!"
